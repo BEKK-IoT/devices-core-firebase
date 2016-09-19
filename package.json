@@ -1,7 +1,7 @@
 {
-  "name": "devices-core",
+  "name": "devices-core-firebase",
   "version": "0.0.4",
-  "description": "Core library for IoT devices",
+  "description": "Core library for firebase",
   "main": "dist/index.js",
   "scripts": {
     "test": "babel-node test/test_default_send.js && babel-node test/test_custom_path.js && babel-node test/test_unregister.js",
@@ -9,10 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BEKK-IoT/devices-core.git"
+    "url": "git+https://github.com/BEKK-IoT/devices-core-firebase.git"
   },
   "devDependencies": {
-    "babel": "^5.8.21"
+    "babel": "^6.5.2"
   },
   "dependencies": {
     "firebase": "^2.2.9"
@@ -20,7 +20,7 @@
   "author": "Vegard Veiset",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/BEKK-IoT/devices-core/issues"
+    "url": "https://github.com/BEKK-IoT/devices-core-firebase/issues"
   },
-  "homepage": "https://github.com/BEKK-IoT/devices-core#readme"
+  "homepage": "https://github.com/BEKK-IoT/devices-core-firebase#readme"
 }
