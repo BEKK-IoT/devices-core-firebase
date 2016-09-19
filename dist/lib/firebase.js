@@ -1,18 +1,18 @@
 'use strict';
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _firebase = require('firebase');
 
 var _firebase2 = _interopRequireDefault(_firebase);
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 var rootUrl = 'https://fiery-inferno-7517.firebaseio.com';
 
-var Firebase = (function () {
+var Firebase = function () {
     function Firebase(id) {
         var _this = this;
 
@@ -23,7 +23,7 @@ var Firebase = (function () {
         this.id = id;
         this.path = path;
         this.connections = {};
-        this.defaultConnection = new _firebase2['default'](rootUrl + '/' + path + '/' + id + '/');
+        this.defaultConnection = new _firebase2.default(rootUrl + '/' + path + '/' + id + '/');
         this.connections[path + '/' + id + '/'] = this.defaultConnection;
         this.register();
         process.on('SIGINT', function () {
@@ -42,7 +42,7 @@ var Firebase = (function () {
             var dataToSend = {};
             dataToSend[e] = data;
             if (!this.connections.hasOwnProperty(path)) {
-                this.connections[path] = new _firebase2['default'](rootUrl + '/' + path + '/');
+                this.connections[path] = new _firebase2.default(rootUrl + '/' + path + '/');
             }
             this.connections[path].update(dataToSend);
         }
@@ -50,7 +50,7 @@ var Firebase = (function () {
         key: 'on',
         value: function on(e, path, callback) {
             if (!this.connections.hasOwnProperty(path)) {
-                this.connections[path] = new _firebase2['default'](rootUrl + '/' + path + '/');
+                this.connections[path] = new _firebase2.default(rootUrl + '/' + path + '/');
             }
             this.connections[path].child(e).on('value', function (snapshot) {
                 return safeCallback(callback, snapshot);
@@ -73,12 +73,12 @@ var Firebase = (function () {
     }, {
         key: 'disconnect',
         value: function disconnect() {
-            _firebase2['default'].goOffline();
+            _firebase2.default.goOffline();
         }
     }]);
 
     return Firebase;
-})();
+}();
 
 function safeCallback(callback, snapshot) {
     var val = snapshot.val();

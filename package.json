@@ -12,7 +12,8 @@
     "url": "git+https://github.com/BEKK-IoT/devices-core-firebase.git"
   },
   "devDependencies": {
-    "babel": "^6.5.2"
+    "babel-cli": "^6.14.0",
+    "babel-preset-es2015": "^6.14.0"
   },
   "dependencies": {
     "firebase": "^2.2.9"
