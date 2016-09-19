@@ -1,0 +1,26 @@
+{
+  "name": "devices-core",
+  "version": "0.0.4",
+  "description": "Core library for IoT devices",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "babel-node test/test_default_send.js && babel-node test/test_custom_path.js && babel-node test/test_unregister.js",
+    "build": "babel index.js -o ./dist/index.js && babel lib/ -d dist/lib/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BEKK-IoT/devices-core.git"
+  },
+  "devDependencies": {
+    "babel": "^5.8.21"
+  },
+  "dependencies": {
+    "firebase": "^2.2.9"
+  },
+  "author": "Vegard Veiset",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BEKK-IoT/devices-core/issues"
+  },
+  "homepage": "https://github.com/BEKK-IoT/devices-core#readme"
+}
