@@ -47,6 +47,16 @@ var Firebase = function () {
             this.connections[path].update(dataToSend);
         }
     }, {
+        key: 'get',
+        value: function get(path, callback) {
+            if (!this.connections.hasOwnProperty(path)) {
+                this.connections[path] = new _firebase2.default(rootUrl + '/' + path + '/');
+            }
+            this.connections[path].once('value', function (snapshot) {
+                return safeCallback(callback, snapshot);
+            });
+        }
+    }, {
         key: 'on',
         value: function on(e, path, callback) {
             if (!this.connections.hasOwnProperty(path)) {
