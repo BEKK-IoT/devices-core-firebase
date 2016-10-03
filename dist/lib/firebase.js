@@ -10,7 +10,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var rootUrl = 'https://fiery-inferno-7517.firebaseio.com';
+var rootUrl = 'https://beacon-wallboard.firebaseio.com/';
 
 var Firebase = function () {
     function Firebase(id) {
