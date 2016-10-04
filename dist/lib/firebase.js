@@ -16,7 +16,7 @@ var Firebase = function () {
     function Firebase(id) {
         var _this = this;
 
-        var path = arguments.length <= 1 || arguments[1] === undefined ? 'users' : arguments[1];
+        var path = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'users';
 
         _classCallCheck(this, Firebase);
 
@@ -37,7 +37,7 @@ var Firebase = function () {
     _createClass(Firebase, [{
         key: 'send',
         value: function send(e, data) {
-            var path = arguments.length <= 2 || arguments[2] === undefined ? this.path + '/' + this.id + '/' : arguments[2];
+            var path = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : this.path + '/' + this.id + '/';
 
             var dataToSend = {};
             dataToSend[e] = data;
@@ -69,7 +69,7 @@ var Firebase = function () {
     }, {
         key: 'unregister',
         value: function unregister(connection) {
-            var callback = arguments.length <= 1 || arguments[1] === undefined ? function () {} : arguments[1];
+            var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function () {};
 
             console.log('Unregistering user ' + this.id);
             connection.update({ 'registered': false }, callback);
@@ -84,6 +84,13 @@ var Firebase = function () {
         key: 'disconnect',
         value: function disconnect() {
             _firebase2.default.goOffline();
+        }
+    }, {
+        key: 'foundBeacon',
+        value: function foundBeacon(beacon) {
+            if (beacon.name != null && beacon.name !== undefined) {
+                send('beacon', beacon.name);
+            }
         }
     }]);
 
