@@ -89,7 +89,7 @@ var Firebase = function () {
         key: 'foundBeacon',
         value: function foundBeacon(beacon) {
             if (beacon.proximity != null && beacon.proximity !== undefined) {
-                this.send('beacons/' + beacon.uuid, beacon.proximity);
+                this.send('beacons/' + beacon.minor, beacon.proximity);
             }
         }
     }]);
